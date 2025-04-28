@@ -1,0 +1,7 @@
+{
+  "name": "gql-api",
+  "version": "1.0.0",
+  "workspaces": [
+    "./gqty-client"
+  ]
+}

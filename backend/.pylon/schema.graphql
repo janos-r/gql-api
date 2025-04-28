@@ -1,0 +1,25 @@
+type Query {
+hello: String!
+echoArr(arr: [String!]!): [String!]!
+echoArrEmpty(arr: [String]!): [String]!
+echoObj(i: Int!, f: Float!, d: Date!): EchoObj!
+}
+type EchoObj {
+name: String!
+age: Int!
+height: Float!
+birth: Date!
+address: String!
+}
+scalar ID
+scalar Int
+scalar Float
+scalar Number
+scalar Any
+scalar Void
+scalar Object
+scalar File
+scalar Date
+scalar JSON
+scalar String
+scalar Boolean
