@@ -1,5 +1,6 @@
 import { app, type Float, type Int } from "@getcronit/pylon";
 import type { Maybe } from "graphql/jsutils/Maybe";
+import { ticketsQuery, ticketsMutation } from "./tickets";
 
 export const graphql = {
     Query: {
@@ -24,8 +25,12 @@ export const graphql = {
                 return "Dublin";
             },
         }),
+
+        tickets: ticketsQuery,
     },
-    Mutation: {},
+    Mutation: {
+        tickets: ticketsMutation,
+    },
 };
 
 export default app;

@@ -1,8 +1,18 @@
+input CreateTicketInput {
+	name: String!
+	age: Number!
+}
+input PartialInput {
+	id: Number
+	name: String
+	age: Number
+}
 type Query {
 hello: String!
 echoArr(arr: [String!]!): [String!]!
 echoArrEmpty(arr: [String]!): [String]!
 echoObj(i: Int!, f: Float!, d: Date!): EchoObj!
+tickets: Tickets!
 }
 type EchoObj {
 name: String!
@@ -10,6 +20,23 @@ age: Int!
 height: Float!
 birth: Date!
 address: String!
+}
+type Tickets {
+findAll: [Ticket]!
+findById(id: Number!): Ticket
+}
+type Ticket {
+id: Number!
+name: String!
+age: Number!
+}
+type Mutation {
+tickets: Tickets_1!
+}
+type Tickets_1 {
+addOne(ticket: CreateTicketInput!): Boolean!
+delete(id: Number!): Boolean!
+updateOne(id: Number!, update: PartialInput!): Boolean
 }
 scalar ID
 scalar Int

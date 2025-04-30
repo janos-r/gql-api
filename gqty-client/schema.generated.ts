@@ -45,6 +45,17 @@ export interface Scalars {
   Void: { input: any; output: any };
 }
 
+export interface CreateTicketInput {
+  age: Scalars["Number"]["input"];
+  name: Scalars["String"]["input"];
+}
+
+export interface PartialInput {
+  age?: InputMaybe<Scalars["Number"]["input"]>;
+  id?: InputMaybe<Scalars["Number"]["input"]>;
+  name?: InputMaybe<Scalars["String"]["input"]>;
+}
+
 export const scalarsEnumsHash: ScalarsEnumsHash = {
   Any: true,
   Boolean: true,
@@ -59,6 +70,10 @@ export const scalarsEnumsHash: ScalarsEnumsHash = {
   Void: true,
 };
 export const generatedSchema = {
+  CreateTicketInput: {
+    age: { __type: "Number!" },
+    name: { __type: "String!" },
+  },
   EchoObj: {
     __typename: { __type: "String!" },
     address: { __type: "String!" },
@@ -67,7 +82,35 @@ export const generatedSchema = {
     height: { __type: "Float!" },
     name: { __type: "String!" },
   },
-  mutation: {},
+  PartialInput: {
+    age: { __type: "Number" },
+    id: { __type: "Number" },
+    name: { __type: "String" },
+  },
+  Ticket: {
+    __typename: { __type: "String!" },
+    age: { __type: "Number!" },
+    id: { __type: "Number!" },
+    name: { __type: "String!" },
+  },
+  Tickets: {
+    __typename: { __type: "String!" },
+    findAll: { __type: "[Ticket]!" },
+    findById: { __type: "Ticket", __args: { id: "Number!" } },
+  },
+  Tickets_1: {
+    __typename: { __type: "String!" },
+    addOne: { __type: "Boolean!", __args: { ticket: "CreateTicketInput!" } },
+    delete: { __type: "Boolean!", __args: { id: "Number!" } },
+    updateOne: {
+      __type: "Boolean",
+      __args: { id: "Number!", update: "PartialInput!" },
+    },
+  },
+  mutation: {
+    __typename: { __type: "String!" },
+    tickets: { __type: "Tickets_1!" },
+  },
   query: {
     __typename: { __type: "String!" },
     echoArr: { __type: "[String!]!", __args: { arr: "[String!]!" } },
@@ -77,6 +120,7 @@ export const generatedSchema = {
       __args: { d: "DateTimeISO!", f: "Float!", i: "Int!" },
     },
     hello: { __type: "String!" },
+    tickets: { __type: "Tickets!" },
   },
   subscription: {},
 } as const;
@@ -90,8 +134,32 @@ export interface EchoObj {
   name: ScalarsEnums["String"];
 }
 
+export interface Ticket {
+  __typename?: "Ticket";
+  age: ScalarsEnums["Number"];
+  id: ScalarsEnums["Number"];
+  name: ScalarsEnums["String"];
+}
+
+export interface Tickets {
+  __typename?: "Tickets";
+  findAll: Array<Maybe<Ticket>>;
+  findById: (args: { id: ScalarsEnums["Number"] }) => Maybe<Ticket>;
+}
+
+export interface Tickets_1 {
+  __typename?: "Tickets_1";
+  addOne: (args: { ticket: CreateTicketInput }) => ScalarsEnums["Boolean"];
+  delete: (args: { id: ScalarsEnums["Number"] }) => ScalarsEnums["Boolean"];
+  updateOne: (args: {
+    id: ScalarsEnums["Number"];
+    update: PartialInput;
+  }) => Maybe<ScalarsEnums["Boolean"]>;
+}
+
 export interface Mutation {
   __typename?: "Mutation";
+  tickets: Tickets_1;
 }
 
 export interface Query {
@@ -108,6 +176,7 @@ export interface Query {
     i: ScalarsEnums["Int"];
   }) => EchoObj;
   hello: ScalarsEnums["String"];
+  tickets: Tickets;
 }
 
 export interface Subscription {
