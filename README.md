@@ -14,8 +14,9 @@
     from the FE to the BE
   - [gqty.dev](https://gqty.dev/)
 - Workspaces
-  - the generated `gqty` folder is shared as a workspace member and is a
-    dependency of the FE, thereby accessible to possibly several frontends
+  - The generated `gqty` folder is shared as a workspace member and is a
+    dependency of the FE. Thereby accessible to possibly several frontends and
+    able to use it's own dependencies and imports.
 - Bun
   - js runtime [bun.sh](https://bun.sh/)
   - just for fast prototyping, could be done with node as well
@@ -23,7 +24,14 @@
 ## Try it yourself
 
 ```
-cd backend/
+cd api/
+bun install
+```
+
+- installs all dependencies of all packages in one place
+
+```
+cd apps/backend/
 bun dev
 ```
 
@@ -34,7 +42,7 @@ bun dev
   http://localhost:3000/graphql
 
 ```
-cd frontend/
+cd libs/frontend/
 bun dev
 ```
 
