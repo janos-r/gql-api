@@ -1,5 +1,8 @@
 {
   "name": "gqty-client",
   "module": "index.ts",
-  "type": "module"
+  "type": "module",
+  "devDependencies": {
+    "@gqty/react": "^3.1.0"
+  }
 }
