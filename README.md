@@ -6,6 +6,12 @@
   - on the backend
   - generates the gql schema from the typescript resolvers
   - [https://pylon.cronit.io/](https://pylon.cronit.io/)
+    - License: Apache 2
+  - uses [Hono](https://hono.dev/) for the server
+    - License: MIT
+  - uses [Yoga](https://the-guild.dev/graphql/yoga-server) for the GraphQL
+    schema integration
+    - License: MIT
 - Gqty
   - on the frontend
   - generates the typescript interface from the gql schema
@@ -13,6 +19,7 @@
   - provides a typed and userfriendly way how to silently generate the gql query
     from the FE to the BE
   - [gqty.dev](https://gqty.dev/)
+    - License: MIT
 - Workspaces
   - The generated `gqty` folder is shared as a workspace member and is a
     dependency of the FE. Thereby accessible to possibly several frontends and
