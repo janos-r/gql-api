@@ -8,10 +8,22 @@ input PartialInput {
 	age: Number
 }
 type Query {
+"""
+simple
+"""
 hello: String!
+"""
+mandatory by default
+"""
 echoArr(arr: [String!]!): [String!]!
+"""
+explicit optionals
+"""
 echoArrEmpty(arr: [String]!): [String]!
-echoObj(i: Int!, f: Float!, d: Date!): EchoObj!
+"""
+validated types
+"""
+echoObj(int: Int!, float: Float!, date: Date!): EchoObj!
 tickets: Tickets!
 }
 type EchoObj {
@@ -19,6 +31,9 @@ name: String!
 age: Int!
 height: Float!
 birth: Date!
+"""
+logged only when called
+"""
 address: String!
 }
 type Tickets {

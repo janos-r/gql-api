@@ -117,7 +117,7 @@ export const generatedSchema = {
     echoArrEmpty: { __type: "[String]!", __args: { arr: "[String]!" } },
     echoObj: {
       __type: "EchoObj!",
-      __args: { d: "DateTimeISO!", f: "Float!", i: "Int!" },
+      __args: { date: "DateTimeISO!", float: "Float!", int: "Int!" },
     },
     hello: { __type: "String!" },
     tickets: { __type: "Tickets!" },
@@ -127,6 +127,9 @@ export const generatedSchema = {
 
 export interface EchoObj {
   __typename?: "EchoObj";
+  /**
+   * logged only when called
+   */
   address: ScalarsEnums["String"];
   age: ScalarsEnums["Int"];
   birth: ScalarsEnums["DateTimeISO"];
@@ -164,17 +167,29 @@ export interface Mutation {
 
 export interface Query {
   __typename?: "Query";
+  /**
+   * mandatory by default
+   */
   echoArr: (args: {
     arr: Array<ScalarsEnums["String"]>;
   }) => Array<ScalarsEnums["String"]>;
+  /**
+   * explicit optionals
+   */
   echoArrEmpty: (args: {
     arr: Array<Maybe<ScalarsEnums["String"]>>;
   }) => Array<Maybe<ScalarsEnums["String"]>>;
+  /**
+   * validated types
+   */
   echoObj: (args: {
-    d: ScalarsEnums["DateTimeISO"];
-    f: ScalarsEnums["Float"];
-    i: ScalarsEnums["Int"];
+    date: ScalarsEnums["DateTimeISO"];
+    float: ScalarsEnums["Float"];
+    int: ScalarsEnums["Int"];
   }) => EchoObj;
+  /**
+   * simple
+   */
   hello: ScalarsEnums["String"];
   tickets: Tickets;
 }

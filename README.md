@@ -40,6 +40,7 @@ bun dev
 - starts the BE dev server on http://localhost:3000
 - starts the graphiql client with inspectable schema on
   http://localhost:3000/graphql
+- there is also an in-build viewer on http://localhost:3000/viewer
 
 ```
 cd libs/frontend/

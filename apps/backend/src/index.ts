@@ -4,23 +4,23 @@ import { ticketsQuery, ticketsMutation } from "./tickets";
 
 export const graphql = {
     Query: {
-        // simple
+        /** simple */
         hello: "World",
 
-        // mandatory by default
+        /** mandatory by default */
         echoArr: (arr: string[]) => arr,
 
-        // explicit optionals
+        /** explicit optionals */
         echoArrEmpty: (arr: Array<Maybe<string>>) => arr,
 
-        // validated types
-        echoObj: (i: Int, f: Float, d: Date) => ({
+        /** validated types */
+        echoObj: (int: Int, float: Float, date: Date) => ({
             name: "Gandalf",
-            age: i,
-            height: f,
-            birth: d,
+            age: int,
+            height: float,
+            birth: date,
+            /** logged only when called */
             address: () => {
-                // logged only when called
                 console.log("LONG RUNNING FUNCTION");
                 return "Dublin";
             },
