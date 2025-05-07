@@ -65,3 +65,28 @@ bun dev
   server, the FE in `frontend/src/App.tsx` will immediately know about the new
   shape of the API through gqty's `useQuery()` and suggest the correct API path
   and type! 🤩 Isn't that cool?
+
+## Containers
+
+- if you have docker, just substitute `docker` for `podman`
+- if you don't have either, just `sudo apt install podman` without any further
+  configuration 👍️ (yes really, that is one of the few benefits of podman)
+
+- run from the root of the repo...
+
+```
+podman build -t my-backend -f infra/backend.Dockerfile .
+```
+
+- this builds the image
+- the `.` specifies the root as the context, even though the file lives in the
+  infra dir
+  - there is no reason to have the dockerfile in the related package dir,
+    because the dependencies and the whole project structure, that is still
+    required for the package build, is in the root of the repo
+
+```
+podman run -p 3000:3000 my-backend
+```
+
+- starts the container
