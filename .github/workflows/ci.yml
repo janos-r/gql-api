@@ -1,0 +1,15 @@
+on: [push, pull_request]
+
+name: API CI
+
+jobs:
+  check:
+    name: Check
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: oven-sh/setup-bun@v2
+      - name: Check full install
+        run: bun install
+      - name: Typos
+        run: bunx cspell "/**/*.ts" "/**/*.md"

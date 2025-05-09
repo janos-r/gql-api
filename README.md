@@ -16,8 +16,8 @@
   - on the frontend
   - generates the typescript interface from the gql schema
     - this is conveniently done already during the Pylon build
-  - provides a typed and userfriendly way how to silently generate the gql query
-    from the FE to the BE
+  - provides a typed and user friendly way how to silently generate the gql
+    query from the FE to the BE
   - [gqty.dev](https://gqty.dev/)
     - License: MIT
 - Workspaces
@@ -70,7 +70,7 @@ bun dev
 
 - if you have docker, just substitute `docker` for `podman`
 - if you don't have either, just `sudo apt install podman` without any further
-  configuration 👍️ (yes really, that is one of the few benefits of podman)
+  configuration 👍️ Yes really, that is one of the benefits of podman.
 
 - run from the root of the repo...
 
