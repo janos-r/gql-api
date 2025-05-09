@@ -74,6 +74,8 @@ bun dev
 
 - run from the root of the repo...
 
+### Backend
+
 ```
 podman build -t my-backend -f infra/backend.Dockerfile .
 ```
@@ -90,3 +92,10 @@ podman run -p 3000:3000 my-backend
 ```
 
 - starts the container
+
+### Frontend
+
+```
+podman build -t my-frontend -f infra/frontend.Dockerfile .
+podman run -p 8080:80 my-frontend
+```
