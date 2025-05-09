@@ -1,0 +1,16 @@
+services:
+  frontend:
+    image: frontend
+    build:
+      context: .
+      dockerfile: "./infra/frontend.Dockerfile"
+    ports:
+      - "8080:80"
+
+  backend:
+    image: backend
+    build:
+      context: .
+      dockerfile: "./infra/backend.Dockerfile"
+    ports:
+      - "3000:3000"

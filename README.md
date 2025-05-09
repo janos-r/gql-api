@@ -99,3 +99,19 @@ podman run -p 3000:3000 my-backend
 podman build -t my-frontend -f infra/frontend.Dockerfile .
 podman run -p 8080:80 my-frontend
 ```
+
+### Compose
+
+Or just
+
+```
+podman-compose up
+```
+
+- to start both services, and
+
+```
+podman-compose down
+```
+
+- to stop them
