@@ -31,11 +31,10 @@
 ## Try it yourself
 
 ```
-cd api/
 bun install
 ```
 
-- installs all dependencies of all packages in one place
+- installs all dependencies of all packages in one place (from the root level)
 
 ```
 cd apps/backend/
